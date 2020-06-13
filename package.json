@@ -13,7 +13,7 @@
     "nodejs"
   ],
   "author": "Jose Luis Campos Bautista <bautistaj20@outlook.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bin": {
     "postman-to-markdown": "./bin/global.js"
   },
