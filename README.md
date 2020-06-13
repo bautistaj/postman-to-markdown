@@ -1,7 +1,7 @@
 
 # 📦  postman-to-markdown
 
-With this package you can generate markdown api documentation file from postman documentation.
+This package generate markdown document from postman documentation.
 
 First export the collection from postman.
 
