@@ -32,8 +32,9 @@ Generating markdown file ...
 
 Documentation was created correctly TwitterTracker.md
 ```
-
 The package will create .md file.
+
+Example of file generated [example.md](./resources/example.md)
 
 # Contributing
 If someone wants to add or improve something, I invite you to collaborate directly in this repository: [postman-to-markdown](https://github.com/bautistaj/postman-to-markdown.git)
