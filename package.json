@@ -1,0 +1,32 @@
+{
+  "name": "postman-to-markdown",
+  "version": "1.0.0",
+  "description": "Generate documentation in markdown from postman documentation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "postman",
+    "markdown",
+    "documentation",
+    "nodejs"
+  ],
+  "author": "Jose Luis Campos Bautista <bautistaj20@outlook.com>",
+  "license": "ISC",
+  "bin": {
+    "postman-to-markdown": "./bin/global.js"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "chalk": "^4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bautistaj/postman-to-markdown.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bautistaj/postman-to-markdown/issues"
+  },
+  "homepage": "https://github.com/bautistaj/postman-to-markdown#readme"
+}
