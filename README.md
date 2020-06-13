@@ -27,11 +27,9 @@ postman-to-markdown TwitterTracker.postman_collection.json
 
 ```
 Reading file TwitterTracker.postman_collection.json
-```
-```
+
 Generating markdown file ...
-```
-```
+
 Documentation was created correctly TwitterTracker.md
 ```
 
