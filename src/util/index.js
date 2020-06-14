@@ -9,7 +9,7 @@ const chalk = require(`chalk`)
 function createStructureOfMarkdown(docJson){
     let markdown = ''
 
-    markdown += `# ${docJson.info.name}\n`
+    markdown += `# Project: ${docJson.info.name}\n`
     markdown +=  docJson.info.description !== undefined ? `## Description: ${docJson.info.description || ''}\n` :''
     markdown += readItems(docJson.item)
 
@@ -24,13 +24,16 @@ function readAuthorization(auth){
     let markdown = ''
     if(auth){
         markdown += `### 🔑 Authentication ${auth.type}\n`
-        markdown += `>|Param|value|Type|\n`
-        markdown += `>|---|---|---|\n`
+        markdown += `\n`
+        markdown += `|Param|value|Type|\n`
+        markdown += `|---|---|---|\n`
         if(auth.bearer){
-            auth.bearer.map(auth => {
-                markdown += `>|${auth.key}|${auth.value}|${auth.type}|\n`
+            auth.bearer.map(auth =>{
+                markdown += `|${auth.key}|${auth.value}|${auth.type}|\n`
             })
         }
+        markdown += `\n`
+        markdown += `\n`
     }
 
     return markdown
@@ -44,13 +47,14 @@ function readAuthorization(auth){
 function readRequestOptions(request){
     let markdown = ''
     if(request){
-            request.header.map(header => {
+            request.header.map(header =>{
             markdown += `### Headers\n`
-            markdown += `>\n`
-            markdown += `>|Content-Type|application/json|\n`
-            markdown += `>|---|---|\n`
-            markdown += `>|${header.key}|${header.value}|\n`
-            markdown += `>\n`
+            markdown += `\n`
+            markdown += `|Content-Type|Value|\n`
+            markdown += `|---|---|\n`
+            markdown += `|${header.key}|${header.value}|\n`
+            markdown += `\n`
+            markdown += `\n`
         })
     }
     return markdown
@@ -60,11 +64,14 @@ function readQueryParams(url){
     let markdown = ''
     if(url.query){
         markdown += `### Query Params\n`
-        markdown += `>|Param|value|\n`
-        markdown += `>|---|---|\n`
-        url.query.map(query => {
-            markdown += `>|${query.key}|${query.value}|\n`
+        markdown += `\n`
+        markdown += `|Param|value|\n`
+        markdown += `|---|---|\n`
+        url.query.map(query =>{
+            markdown += `|${query.key}|${query.value}|\n`
         })
+        markdown += `\n`
+        markdown += `\n`
     }
 
     return markdown
@@ -80,22 +87,23 @@ function readFormDataBody(body) {
     if(body){
         if(body.mode === 'raw'){
             markdown += `### Body (**${body.mode}**)\n`
-            markdown += `>\n`
+            markdown += `\n`
+            markdown += `\`\`\`json\n`
+            markdown += `${body.raw}\n`
             markdown += `\`\`\`\n`
-            markdown += `${body.raw} \n`
-            markdown += `\`\`\`\n`
-            markdown += `>\n`
+            markdown += `\n`
         }
 
         if(body.mode === 'formdata'){
             markdown += `### Body ${body.mode}\n`
-            markdown += `>\n`
-            markdown += `>|Param|value|Type\n`
-            markdown += `>|---|---|---|\n`
-            body.formdata.map(form => {
-                markdown += `>|${form.key}|${form.value}|${form.type}|\n`
+            markdown += `\n`
+            markdown += `|Param|value|Type|\n`
+            markdown += `|---|---|---|\n`
+            body.formdata.map(form =>{
+                markdown += `|${form.key}|${form.value}|${form.type}|\n`
             })
-            markdown += `>\n`
+            markdown += `\n`
+            markdown += `\n`
         }
     }
 
@@ -108,16 +116,21 @@ function readFormDataBody(body) {
  */
 function readMethods(method){
     let markdown = ''
-    markdown += `## 🚀 ${method.name}\n`
-    markdown += `### ${method.request.method}\n`
-    markdown += `### ${method.request.description || ''}\n`
-    markdown += `\`\`\`\n`
-    markdown += `${method.request.url.raw}\n`
-    markdown += `\`\`\`\n`
+    
+    markdown += `\n`
+    markdown += `## End-point: ${method.name}\n`
+    markdown += `### Description: ${method.request.description || ''}\n`
+    markdown += `Method: ${method.request.method}\n`
+    markdown += `>\`\`\`\n`
+    markdown += `>${method.request.url.raw}\n`
+    markdown += `>\`\`\`\n`
     markdown += readRequestOptions(method.request)
     markdown += readFormDataBody(method.request.body)
     markdown += readQueryParams(method.request.url)
     markdown += readAuthorization(method.request.auth)
+    markdown += `\n`
+    markdown += `⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃\n`
+    markdown += `\n`
     
     return markdown
 }
@@ -128,22 +141,19 @@ function readMethods(method){
  */
 function readItems(items) {
     let markdown = ''
-    let docItems = {}
-
-    items.forEach(item => {
+    items.forEach(item =>{
         if(item.item){
-            markdown += `***\n`
-            markdown += `# 📁 ${item.name} \n`
-            
-            item.item.forEach(item => {
+            markdown += `# 📁 Collection: ${item.name} \n`
+            markdown += `\n`
+    
+            item.item.forEach(item =>{
                 markdown += readMethods(item)
             });
-
         }else{
             markdown += readMethods(item)
         }
     });
-
+    
     return markdown
 }
 

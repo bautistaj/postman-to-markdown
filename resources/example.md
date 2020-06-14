@@ -1,44 +1,56 @@
 # Store
-***
-# 📁Product 
-## 🚀 Get products
-### GET
-### Get all products
-```
-{{url}}/api/products/
-```
-### 🔑 Authentication bearer
+
+>--------------------
+>
+># 📁Product 
+>## 🚀 Get products
+>### GET
+>### Get all products
+>```
+>{{url}}/api/products/
+>```
+>### 🔑 Authentication bearer
 >|Param|value|Type|
 >|---|---|---|
 >|token|{{access_token}}|string|
-## 🚀 Update a product
-### PUT
-### Update a product
-```
-{{url}}/api/products/5eaac0e7e5b4af1a4cd56215
-```
-### Body (**raw**)
+>||||
+>--------------------------------
+
+>--------------------------------
 >
-```
-{
-	"name":"Sherbet - Raspberry",
-	"image":"http://dummyimage.com/178x104.jpg/cc0000/ffffff",
-	"description":"error: undefined method `/' for nil:NilClass",
-	"price":100.50
-} 
-```
+>## 🚀 Update a product
+>### PUT
+>### Update a product
+>```
+>{{url}}/api/products/5eaac0e7e5b4af1a4cd56215
+>```
+>### Body (**raw**)
 >
-### 🔑 Authentication bearer
+>```
+>{
+>	"name":"Sherbet - Raspberry",
+>	"image":"http://dummyimage.com/178x104.jpg/cc0000/ffffff",
+>	"description":"error: undefined method `/' for nil:NilClass",
+>	"price":100.50
+>} 
+>```
+>
+>### 🔑 Authentication bearer
 >|Param|value|Type|
 >|---|---|---|
 >|token|{{access_token}}|string|
-## 🚀 Get detail of product
-### GET
-### Get the detail og product
-```
-{{url}}/api/products/5eaac0e7e5b4af1a4cd56215
-```
-### 🔑 Authentication bearer
+>
+>--------------------------------
+
+>--------------------------------
+>
+>## 🚀 Get detail of product
+>### GET
+>### Get the detail og product
+>```
+>{{url}}/api/products/5eaac0e7e5b4af1a4cd56215
+>```
+>### 🔑 Authentication bearer
 >|Param|value|Type|
 >|---|---|---|
 >|token|{{access_token}}|string|

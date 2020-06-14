@@ -1,7 +1,7 @@
 
 # 📦  postman-to-markdown
 
-This package generate markdown document from postman documentation.
+This package generate markdown document from postman.
 
 First export the collection from postman.
 
