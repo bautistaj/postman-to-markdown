@@ -1,6 +1,6 @@
 {
   "name": "postman-to-markdown",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Generate documentation in markdown from postman documentation.",
   "main": "index.js",
   "scripts": {
