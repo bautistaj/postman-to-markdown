@@ -100,7 +100,7 @@ function readFormDataBody(body) {
             markdown += `|Param|value|Type|\n`
             markdown += `|---|---|---|\n`
             body.formdata.map(form =>{
-                markdown += `|${form.key}|${form.value}|${form.type}|\n`
+                markdown += `|${form.key}|${form.type === 'file' ? form.src : form.value !== undefined ? form.value.replace(/\\n/g,'') : '' }|${form.type}|\n`
             })
             markdown += `\n`
             markdown += `\n`
