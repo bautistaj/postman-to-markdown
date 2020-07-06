@@ -1,260 +1,128 @@
-# Store
+# Project: TwitterTracker
+## Description: Twittwe Tracker
+# 📁 Collection: Keywords 
 
->--------------------
->
-># 📁Product 
->## 🚀 Get products
->### GET
->### Get all products
->```
->{{url}}/api/products/
->```
->### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
->||||
->--------------------------------
 
->--------------------------------
->
->## 🚀 Update a product
->### PUT
->### Update a product
->```
->{{url}}/api/products/5eaac0e7e5b4af1a4cd56215
->```
->### Body (**raw**)
->
->```
->{
->	"name":"Sherbet - Raspberry",
->	"image":"http://dummyimage.com/178x104.jpg/cc0000/ffffff",
->	"description":"error: undefined method `/' for nil:NilClass",
->	"price":100.50
->} 
->```
->
->### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
->
->--------------------------------
+## End-point: Get keywords.
+### Description: Get keywords.
 
->--------------------------------
->
->## 🚀 Get detail of product
->### GET
->### Get the detail og product
+You can spesify the limit of the query adding param in the request.
+
+http://localhost:3000/api/keywords?limit=10
+
+Also search tweets for keword.
+http://localhost:3000/api/keywords?limit=10&keword=node.
+
+
+Method: GET
 >```
->{{url}}/api/products/5eaac0e7e5b4af1a4cd56215
+>http://localhost:3000/api/keywords/
 >```
->### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Crete a product
-### POST
-### Crete a product
-```
-{{url}}/api/products/
-```
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+
+## End-point: Get spesific kewords
+### Description: Get spesific kewords by id
+Method: GET
+>```
+>http://localhost:3000/api/keywords/5eb6f9c8a8dccd56dd2915f6
+>```
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+
+## End-point: Edit kewords
+### Description: Edit kewords
+Method: PUT
+>```
+>http://localhost:3000/api/keywords/5eb6f9c8a8dccd56dd2915f6
+>```
 ### Body (**raw**)
->
-```
+
+```json
 {
-	"name":"Sherbet",
-	"image":"http://dummyimage.com/178x104.jpg/cc0000/ffffff",
-	"description":"error: undefined method `/' for nil:NilClass",
-	"price":77.3,
-	"company": "5eac9c049454c536b420c990"
-} 
+	"name": "node",
+	"status": true
+}
 ```
->
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Delete product
-### DELETE
-### Delete product
-```
-{{url}}/api/products/5eaac0e7e5b4af1a4cd56215
-```
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-***
-# 📁User 
-## 🚀 Get  users
-### GET
-### Get  users
-```
-{{url}}/api/users/
-```
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Update user
-### PUT
-### Update user
-```
-{{url}}/api/users/5eac2485593c460abc731884
-```
-### Body (**raw**)
->
-```
-{
-	"username": "CAMPOSB",
-	"photo": "http://dummyimage.com/109x234.bmp/ff4444/",
-	"password": "CAMPOSB2019",
-	"email": "jose.campos@ulfix.com"
-} 
-```
->
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Get detail of user
-### GET
-### Get detail of user
-```
-{{url}}/api/users/5eac2485593c460abc731884
-```
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Create user
-### POST
-### 
-```
-{{url}}/api/users/
-```
-### Body (**raw**)
->
-```
-{
-	"password": "CAMPOSB2019",
-	"email": "jose.campos@ulfix.com",
-	"username":"CAMPOSB2019"
-} 
-```
->
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Delete user
-### DELETE
-### Delete user
-```
-{{url}}/api/users/5eac2485593c460abc731884
-```
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-***
-# 📁Company 
-## 🚀 Create company
-### POST
-### Create company
-```
-{{url}}/api/companies/
-```
-### Body (**raw**)
->
-```
-{
-	"name": "CAMPOSB",
-	"description": "Gallery of paints",
-	"user": "5eac2510b073fa0dac0e3568"
-} 
-```
->
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Update company
-### PUT
-### Update company
-```
-{{url}}/api/companies/5eac281e7cdd9b1ac0621da4
-```
-### Body (**raw**)
->
-```
-{
-	"name": "CAMPOSB",
-	"description": "Gallery of paints",
-	"user": "5eac2510b073fa0dac0e3568",
-	"image": "http://dummyimage.com/178x104.jpg/cc0000/ffffff"
-} 
-```
->
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Get detail of company
-### GET
-### Get detail of company
-```
-{{url}}/api/companies/5eac27007cdd9b1ac0621da2
-```
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Get companies
-### GET
-### Get companies
-```
-{{url}}/api/companies/
-```
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-## 🚀 Delete company
-### DELETE
-### Delete company
-```
-{{url}}/api/companies/5eac27007cdd9b1ac0621da2
-```
-### 🔑 Authentication bearer
->|Param|value|Type|
->|---|---|---|
->|token|{{access_token}}|string|
-***
-# 📁Auth 
-## 🚀 Sign in
-### POST
-### Sign in user
-```
-{{url}}/api/auth/sign-in
-```
-### Body (**raw**)
->
-```
-{
-	"apiKeyToken": "{{admin_api_key_token}}"
-} 
-```
->
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+# 📁 Collection: Tweets 
+
+
+## End-point: Get tweets
+### Description: Get tweets
+Method: GET
+>```
+>http://localhost:3000/api/tweets?keyword=node&limit=5
+>```
 ### Query Params
->|Param|value|
->|---|---|
->|apiKeyToken||
-### 🔑 Authentication basic
->|Param|value|Type|
->|---|---|---|
+
+|Param|value|
+|---|---|
+|keyword|node|
+|limit|5|
+
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+
+## End-point: Get tweets by id
+### Description: Get tweets by id
+Method: GET
+>```
+>http://localhost:3000/api/tweets/5eb8d254291de45fd8a4bec8
+>```
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+
+## End-point: Update tweet
+### Description: Update tweet
+Method: PUT
+>```
+>http://localhost:3000/api/tweets/5eb8d254291de45fd8a4bec8
+>```
+### Body (**raw**)
+
+```json
+{
+	"createdAt": "2020-05-10T22:57:57.000Z",
+	"id": 1259618708684705800,
+	"img": "http://pbs.twimg.com/profile_images/880663618894909440/5zMFPn_g_normal.jpg",
+	"keyword": "platzi",
+	"lang": "und",
+	"location": "Monterrey, Nuevo León",
+	"screen": "AngelCortez7",
+	"text": "#photography #platzi #LearningAtHome https://t.co/BdPMKUTPwD",
+	"username": "Ángel Cortéz"
+}
+```
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
+
+## End-point: Upload images
+### Description: 
+Method: POST
+>```
+>http://localhost:8080/upload
+>```
+### Body formdata
+
+|Param|value|Type|
+|---|---|---|
+|file|/Users/mac/Downloads/db.jpeg|file|
+
+
+
+⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃
+
 _________________________________________________
 Author: [bautistaj](https://github.com/bautistaj)
 

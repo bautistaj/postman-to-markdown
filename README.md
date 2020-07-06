@@ -1,4 +1,6 @@
 
+![npm](https://img.shields.io/npm/v/postman-to-markdown?style=plastic)
+
 # 📦  postman-to-markdown
 
 This package generate markdown document from postman.
