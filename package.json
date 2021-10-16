@@ -2,7 +2,7 @@
   "name": "postman-to-markdown",
   "version": "1.0.6",
   "description": "Generate documentation in markdown from postman documentation.",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

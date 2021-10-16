@@ -10,7 +10,7 @@ function createStructureOfMarkdown(docJson){
     let markdown = ''
 
     markdown += `# Project: ${docJson.info.name}\n`
-    markdown +=  docJson.info.description !== undefined ? `## Description: ${docJson.info.description || ''}\n` :''
+    markdown += docJson.info.description !== undefined ? `${docJson.info.description || ''}\n` :``
     markdown += readItems(docJson.item)
 
     return markdown
@@ -111,6 +111,23 @@ function readFormDataBody(body) {
 }
 
 /**
+ * Read methods of response
+ * @param {array} responses 
+ */
+function readResponse(responses) {
+    let markdown = ''
+    if (responses.length) {
+        const response = responses[0];
+        markdown += `### Response: ${response.code}\n`
+        markdown += `\`\`\`json\n`
+        markdown += `${response.body}\n`
+        markdown += `\`\`\`\n`
+        markdown += `\n`
+    }
+    return markdown;
+}
+
+/**
  * Read methods of each item
  * @param {object} post 
  */
@@ -119,8 +136,8 @@ function readMethods(method){
     
     markdown += `\n`
     markdown += `## End-point: ${method.name}\n`
-    markdown += `### Description: ${method.request.description || ''}\n`
-    markdown += `Method: ${method.request.method}\n`
+    markdown += method.request.description !== undefined ? `${method.request.description || ''}\n` :``
+    markdown += `### Method: ${method.request.method}\n`
     markdown += `>\`\`\`\n`
     markdown += `>${method.request.url.raw}\n`
     markdown += `>\`\`\`\n`
@@ -128,9 +145,9 @@ function readMethods(method){
     markdown += readFormDataBody(method.request.body)
     markdown += readQueryParams(method.request.url)
     markdown += readAuthorization(method.request.auth)
+    markdown += readResponse(method.response)
     markdown += `\n`
     markdown += `⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃\n`
-    markdown += `\n`
     
     return markdown
 }
