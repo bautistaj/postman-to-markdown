@@ -20,7 +20,7 @@ function init(){
       const json = JSON.parse(rawData)
       let markdown = createStructureOfMarkdown(json)
       markdown += '_________________________________________________\n'
-      markdown += 'Powered By: [postman-to-markdown](https://github.com/bautistaj)\n'
+      markdown += 'Powered By: [postman-to-markdown](https://github.com/bautistaj/postman-to-markdown/)\n'
 
       const fileName = path[0].split('.')
       writeFile(markdown, fileName[0])
