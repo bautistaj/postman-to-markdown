@@ -1,0 +1,588 @@
+{
+	"info": {
+		"_postman_id": "13cab2da-945e-4c50-b06c-e272c83aec16",
+		"name": "kmk-blog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "原子服务",
+					"item": [
+						{
+							"name": "获取原子类型",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/atom/type",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"atom",
+										"type"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "测试原子函数",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "rule",
+											"value": "/** 此函数返回一个promise **/\nconst delayTime = (time = 1000) => {\n  return new Promise((resolve) => {\n    setTimeout(() => {\n      resolve(time);\n    }, time)\n  })\n}\nconst getData = async () => {\n  const time = await delayTime(1000);\n  return {\n    time,\n    msg: 'msg',\n  };\n}\nreturn new Promise((resolve, reject) => {\n  getData().then(res => resolve({res, arguments}));\n});",
+											"type": "text"
+										},
+										{
+											"key": "arg",
+											"value": "{\"ssadasd\": \"ssss\"}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/atom/test/function",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"atom",
+										"test",
+										"function"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取原子列表",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"search\": {\r\n        \"type\": \"AJAX\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/admin/atom/list?pageSize=10&pageNum=1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"atom",
+										"list"
+									],
+									"query": [
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "pageNum",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取原子类型",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/atom/type/count",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"atom",
+										"type",
+										"count"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "流水线",
+					"item": [
+						{
+							"name": "获取流水线列表",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/pipeline/list",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pipeline",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "运行流水线",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "uuid",
+											"value": "1c89N8d5Y",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/admin/pipeline/run",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pipeline",
+										"run"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "获取流水线详情",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/admin/pipeline/details?uuid=1c89N8d5Y",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"admin",
+										"pipeline",
+										"details"
+									],
+									"query": [
+										{
+											"key": "uuid",
+											"value": "1c89N8d5Y"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "akarichan",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/admin/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "刷新token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/admin/refresh",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加Tag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "tagName",
+									"value": "游戏",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/admin/tag/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"tag",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取文章列表(所有State)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/post/list?pageNum=1&pageSize=20",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"post",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "上传图片",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/11353/Downloads/Telegram Desktop/CleanShot 2022-04-25 at 09.32.19@2x.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/admin/upload",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取所有tag",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/tag/list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"tag",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新建日记",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "她曾经竟然向v圈最混沌的一帮人表示善意🤣，被开了那么多次，被直球骂，被私信发梅毒，直播的时候被遛狗， 被形容成过滤器，她还相信这帮粉丝是好人，你说这人是哪根筋搭错了，连个ybb都说不出来🤣只会被骂之后装看不见然后笑着小声掐着嗓子说话唱歌，一高兴就绷不住了，好了伤疤忘了疼，忘了这帮粉丝是什么逆天，笑的东倒西歪小腿乱蹬，真的，太蠢了.......为什么会有人喜欢这种虚拟人呢，一样太蠢了......😭😭😭\n\n呜呜呜😭😭😭😭😭😭😭😭😭\n",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/admin/diary/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"diary",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "日记列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/diary/list?pageSize=5&pageNum=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"diary",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageSize",
+									"value": "5"
+								},
+								{
+									"key": "pageNum",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取所有常量",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/admin/constant/list",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"admin",
+								"constant",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Search",
+			"item": [
+				{
+					"name": "搜索日记内容",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/search/diary?keyword=嘉然",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"search",
+								"diary"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "嘉然"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "测试接口",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/search/test?test1=test2=333&test2=test1=33333",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"search",
+								"test"
+							],
+							"query": [
+								{
+									"key": "test1",
+									"value": "test2=333"
+								},
+								{
+									"key": "test2",
+									"value": "test1=33333"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "WebService",
+			"item": [
+				{
+					"name": "获取文章列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/post/list?pageNum=1&pageSize=1",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"post",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pageNum",
+									"value": "1"
+								},
+								{
+									"key": "pageSize",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFrYXJpY2hhbiIsImlhdCI6MTY0Mzk4MTA1NywiZXhwIjoxNjUyNjIxMDU3fQ.pyWfgrmH1QN_pO7w3LewTevaIYDs6zJ6y0xuWkIZoMo"
+		},
+		{
+			"key": "url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
