@@ -9,7 +9,6 @@ const { createStructureOfMarkdown, writeFile } = require('./util')
  * Init execution
  */
 function init() {
-  console.log('init')
   const path = args[`_`];
   if(path.length > 0){
     console.log(chalk.green(`Reading file ${path[0]}`))
