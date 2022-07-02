@@ -133,7 +133,7 @@ function readResponse(responses) {
  */
 function readMethods(method){
     let markdown = ''
-    
+
     markdown += `\n`
     markdown += `## End-point: ${method.name}\n`
     markdown += method?.request?.description !== undefined ? `${method?.request?.description || ''}\n` :``
@@ -158,10 +158,18 @@ function readMethods(method){
  */
 function readItems(items, folderDeep = 1) {
     let markdown = ''
-    items.forEach(item => { 
-        if (item.item) {
+    items.forEach(item =>{
+        if(item.item instanceof Array){
             markdown += `${'#'.repeat(folderDeep)} 📁 Collection: ${item.name} \n`
-            markdown += readItems(item.item, folderDeep + 1)
+            markdown += `\n`
+    
+            item.item.forEach(item =>{
+                if (item.item instanceof Array) {
+                    markdown += readItems(item.item, folderDeep + 1)
+                } else {
+                    markdown += readMethods(item)
+                }
+            });
         } else {
             markdown += readMethods(item)
         }
