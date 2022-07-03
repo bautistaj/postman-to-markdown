@@ -8,7 +8,7 @@ const { createStructureOfMarkdown, writeFile } = require('./util')
 /**
  * Init execution
  */
-function init(){
+function init() {
   const path = args[`_`];
   if(path.length > 0){
     console.log(chalk.green(`Reading file ${path[0]}`))
@@ -21,7 +21,6 @@ function init(){
       let markdown = createStructureOfMarkdown(json)
       markdown += '_________________________________________________\n'
       markdown += 'Powered By: [postman-to-markdown](https://github.com/bautistaj/postman-to-markdown/)\n'
-
       const fileName = path[0].split('.')
       writeFile(markdown, fileName[0])
       

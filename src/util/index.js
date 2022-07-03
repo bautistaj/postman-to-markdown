@@ -62,7 +62,7 @@ function readRequestOptions(request){
 
 function readQueryParams(url){
     let markdown = ''
-    if(url.query){
+    if(url?.query){
         markdown += `### Query Params\n`
         markdown += `\n`
         markdown += `|Param|value|\n`
@@ -116,7 +116,7 @@ function readFormDataBody(body) {
  */
 function readResponse(responses) {
     let markdown = ''
-    if (responses.length) {
+    if (responses?.length) {
         const response = responses[0];
         markdown += `### Response: ${response.code}\n`
         markdown += `\`\`\`json\n`
@@ -136,16 +136,16 @@ function readMethods(method){
     
     markdown += `\n`
     markdown += `## End-point: ${method.name}\n`
-    markdown += method.request.description !== undefined ? `${method.request.description || ''}\n` :``
-    markdown += `### Method: ${method.request.method}\n`
+    markdown += method?.request?.description !== undefined ? `${method?.request?.description || ''}\n` :``
+    markdown += `### Method: ${method?.request?.method}\n`
     markdown += `>\`\`\`\n`
-    markdown += `>${method.request.url.raw}\n`
+    markdown += `>${method?.request?.url?.raw}\n`
     markdown += `>\`\`\`\n`
-    markdown += readRequestOptions(method.request)
-    markdown += readFormDataBody(method.request.body)
-    markdown += readQueryParams(method.request.url)
-    markdown += readAuthorization(method.request.auth)
-    markdown += readResponse(method.response)
+    markdown += readRequestOptions(method?.request)
+    markdown += readFormDataBody(method?.request?.body)
+    markdown += readQueryParams(method?.request?.url)
+    markdown += readAuthorization(method?.request?.auth)
+    markdown += readResponse(method?.response)
     markdown += `\n`
     markdown += `⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃\n`
     
@@ -154,22 +154,18 @@ function readMethods(method){
 
 /**
  * Read items of json postman
- * @param {object} items
+ * @param {Array} items
  */
-function readItems(items) {
+function readItems(items, folderDeep = 1) {
     let markdown = ''
-    items.forEach(item =>{
-        if(item.item){
-            markdown += `# 📁 Collection: ${item.name} \n`
-            markdown += `\n`
-    
-            item.item.forEach(item =>{
-                markdown += readMethods(item)
-            });
-        }else{
+    items.forEach(item => { 
+        if (item.item) {
+            markdown += `${'#'.repeat(folderDeep)} 📁 Collection: ${item.name} \n`
+            markdown += readItems(item.item, folderDeep + 1)
+        } else {
             markdown += readMethods(item)
         }
-    });
+    })
     
     return markdown
 }

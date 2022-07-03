@@ -4,7 +4,7 @@
   "description": "Generate documentation in markdown from postman documentation.",
   "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./src/test.js ./example/kmk-blog.postman_collection.json"
   },
   "keywords": [
     "postman",
