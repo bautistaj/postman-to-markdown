@@ -1,5 +1,8 @@
 
-[![npm](https://img.shields.io/npm/v/postman-to-markdown.svg?style=for-the-badge\&color=f14041)](https://www.npmjs.com/postman-to-markdown)
+[![npm](https://img.shields.io/npm/v/postman-to-markdown.svg?style=for-the-badge\&color=f14041)][3]
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-shield]
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge\&color=ff69b4)][4]
 
 # 📦  postman-to-markdown
 
@@ -54,5 +57,12 @@ directly in this repository:
 postman-to-markdown is released under the
 [MIT License](https://opensource.org/licenses/MIT).
 
+[contributors-shield]: https://img.shields.io/github/contributors/bautistaj/postman-to-markdown.svg?style=for-the-badge
+[contributors-url]: https://github.com/bautistaj/postman-to-markdown/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/bautistaj/postman-to-markdown.svg?style=for-the-badge
+[forks-url]: https://github.com/sebastienrousseau/crypto-service/network/members
+
 [1]: https://www.postman.com/downloads/
 [2]: https://www.postman.com/
+[3]: https://www.npmjs.com/postman-to-markdown
+[4]: https://opensource.org/licenses/MIT
