@@ -1,16 +1,24 @@
-'use strict';
-const fs = require('fs');
-const chalk = require(`chalk`)
+import fs from 'fs';
+import chalk from 'chalk';
+import {
+    jsonAuth,
+    jsonBody,
+    jsonDocument,
+    jsonResponse,
+    jsonQuery,
+    jsonRequest
+} from "../@types/types";
+
 /**
  * Create structure of markdown documentation
  * @param {object} docJson 
- * @return {strinf} structure of markdown
+ * @return {string} structure of markdown
  */
-function createStructureOfMarkdown(docJson){
+export function createStructureOfMarkdown(docJson: jsonDocument): string {
     let markdown = ''
 
     markdown += `# Project: ${docJson.info.name}\n`
-    markdown += docJson.info.description !== undefined ? `${docJson.info.description || ''}\n` :``
+    markdown += docJson.info.description !== undefined ? `${docJson.info.description || ''}\n` : ``
     markdown += readItems(docJson.item)
 
     return markdown
@@ -20,15 +28,15 @@ function createStructureOfMarkdown(docJson){
  * Read auth of each method
  * @param {object} auth 
  */
-function readAuthorization(auth){
+export function readAuthorization(auth: jsonAuth) {
     let markdown = ''
-    if(auth){
+    if (auth) {
         markdown += `### 🔑 Authentication ${auth.type}\n`
         markdown += `\n`
         markdown += `|Param|value|Type|\n`
         markdown += `|---|---|---|\n`
-        if(auth.bearer){
-            auth.bearer.map(auth =>{
+        if (auth.bearer) {
+            auth.bearer.map(auth => {
                 markdown += `|${auth.key}|${auth.value}|${auth.type}|\n`
             })
         }
@@ -44,10 +52,10 @@ function readAuthorization(auth){
  * @param {object} request information
  * @return {string} info of data about request options
  */
-function readRequestOptions(request){
+export function readRequestOptions(request: jsonRequest) {
     let markdown = ''
-    if(request){
-            request.header.map(header =>{
+    if (request) {
+        request.header.map(header => {
             markdown += `### Headers\n`
             markdown += `\n`
             markdown += `|Content-Type|Value|\n`
@@ -60,14 +68,14 @@ function readRequestOptions(request){
     return markdown
 }
 
-function readQueryParams(url){
+export function readQueryParams(url: jsonQuery) {
     let markdown = ''
-    if(url?.query){
+    if (url?.query) {
         markdown += `### Query Params\n`
         markdown += `\n`
         markdown += `|Param|value|\n`
         markdown += `|---|---|\n`
-        url.query.map(query =>{
+        url.query.map(query => {
             markdown += `|${query.key}|${query.value}|\n`
         })
         markdown += `\n`
@@ -81,11 +89,11 @@ function readQueryParams(url){
  * Read objects of each method
  * @param {object} body 
  */
-function readFormDataBody(body) {
+export function readFormDataBody(body: jsonBody) {
     let markdown = ''
-    
-    if(body){
-        if(body.mode === 'raw'){
+
+    if (body) {
+        if (body.mode === 'raw') {
             markdown += `### Body (**${body.mode}**)\n`
             markdown += `\n`
             markdown += `\`\`\`json\n`
@@ -94,27 +102,27 @@ function readFormDataBody(body) {
             markdown += `\n`
         }
 
-        if(body.mode === 'formdata'){
+        if (body.mode === 'formdata') {
             markdown += `### Body ${body.mode}\n`
             markdown += `\n`
             markdown += `|Param|value|Type|\n`
             markdown += `|---|---|---|\n`
-            body.formdata.map(form =>{
-                markdown += `|${form.key}|${form.type === 'file' ? form.src : form.value !== undefined ? form.value.replace(/\\n/g,'') : '' }|${form.type}|\n`
+            body.formdata.map(form => {
+                markdown += `|${form.key}|${form.type === 'file' ? form.src : form.value !== undefined ? form.value.replace(/\\n/g, '') : ''}|${form.type}|\n`
             })
             markdown += `\n`
             markdown += `\n`
         }
     }
 
-    return markdown 
+    return markdown
 }
 
 /**
  * Read methods of response
  * @param {array} responses 
  */
-function readResponse(responses) {
+export function readResponse(responses: jsonResponse) {
     let markdown = ''
     if (responses?.length) {
         const response = responses[0];
@@ -131,12 +139,12 @@ function readResponse(responses) {
  * Read methods of each item
  * @param {object} post 
  */
-function readMethods(method){
+export function readMethods(method) {
     let markdown = ''
-    
+
     markdown += `\n`
     markdown += `## End-point: ${method.name}\n`
-    markdown += method?.request?.description !== undefined ? `${method?.request?.description || ''}\n` :``
+    markdown += method?.request?.description !== undefined ? `${method?.request?.description || ''}\n` : ``
     markdown += `### Method: ${method?.request?.method}\n`
     markdown += `>\`\`\`\n`
     markdown += `>${method?.request?.url?.raw}\n`
@@ -148,7 +156,7 @@ function readMethods(method){
     markdown += readResponse(method?.response)
     markdown += `\n`
     markdown += `⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃ ⁃\n`
-    
+
     return markdown
 }
 
@@ -156,9 +164,9 @@ function readMethods(method){
  * Read items of json postman
  * @param {Array} items
  */
-function readItems(items, folderDeep = 1) {
+export function readItems(items: any[], folderDeep = 1) {
     let markdown = ''
-    items.forEach(item => { 
+    items.forEach(item => {
         if (item.item) {
             markdown += `${'#'.repeat(folderDeep)} 📁 Collection: ${item.name} \n`
             markdown += readItems(item.item, folderDeep + 1)
@@ -166,7 +174,7 @@ function readItems(items, folderDeep = 1) {
             markdown += readMethods(item)
         }
     })
-    
+
     return markdown
 }
 
@@ -174,14 +182,21 @@ function readItems(items, folderDeep = 1) {
  * Create file
  * @param {string} content 
  */
-function writeFile(content, fileName){
+export function writeFile(content: string | NodeJS.ArrayBufferView, fileName: string) {
     fs.writeFile(`${fileName}.md`, content, function (err) {
         if (err) throw err;
         console.log(chalk.green(`Documentation was created correctly ${fileName}.md`))
     });
 }
 
-module.exports = {
+export default {
     createStructureOfMarkdown,
+    readAuthorization,
+    readRequestOptions,
+    readFormDataBody,
+    readQueryParams,
+    readResponse,
+    readMethods,
+    readItems,
     writeFile
 }
