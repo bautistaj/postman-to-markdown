@@ -1,0 +1,3 @@
+{
+  "extends": "@sebastienrousseau/mocha-config"
+}

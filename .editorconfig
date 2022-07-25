@@ -1,0 +1,41 @@
+#       ____                  _          ____                  _
+#      / ___|_ __ _   _ _ __ | |_ ___   / ___|  ___ _ ____   _(_) ___ ___
+#     | |   | '__| | | | '_ \| __/ _ \  \___ \ / _ \ '__\ \ / / |/ __/ _ \
+#     | |___| |  | |_| | |_) | || (_) |  ___) |  __/ |   \ V /| | (_|  __/
+#      \____|_|   \__, | .__/ \__\___/  |____/ \___|_|    \_/ |_|\___\___|
+#                 |___/|_|
+# Crypto Service Suite
+# https://crypto-service.co/
+#
+# Copyright (c) Sebastien Rousseau 2022. All rights reserved
+# Licensed under the MIT license
+#
+# http://editorconfig.org
+#
+# An .editorconfig file describes minor formatting tweaks
+#   to apply to text files to ensure consistent formatting
+#   in a project with multiple developers.
+#
+# Plugins exist to allow editors / IDEs to automatically apply
+#   these tweaks to a project when an .editorconfig file is
+#   found in the project's root directory.
+#
+# Plugins
+#   Sublime - https://packagecontrol.io/packages/EditorConfig
+#   IntelliJ - https://plugins.jetbrains.com/plugin/7294
+#   (most other IDEs/Editors - Google it)
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[Makefile]
+indent_style = tab

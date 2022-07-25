@@ -1,6 +1,8 @@
 'use strict'
 
-import { createStructureOfMarkdown, writeFile } from './util';
+import { createStructureOfMarkdown } from './util';
+import { writeFile } from './util/write';
+
 import fs from 'fs';
 import minimist from 'minimist';
 import chalk from "chalk";
@@ -10,7 +12,7 @@ import chalk from "chalk";
  */
 const args = minimist(process.argv.slice(2));
 console.log(args);
-const path = args[`_`]; 
+const path = args[`_`];
 export function init() {
   if (path.length > 0) {
     console.log(chalk.green(`Reading file ${path[0]}`))
