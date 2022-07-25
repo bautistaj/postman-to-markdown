@@ -1,0 +1,25 @@
+{
+    "$schema": "https://typedoc.org/schema.json",
+    "cleanOutputDir": true,
+    "entryPointStrategy": "expand",
+    "entryPoints": [
+        "./src"
+    ],
+    "exclude": [
+        "src/!(@types)/*/*"
+    ],
+    "excludeExternals": true,
+    "excludeInternal": true,
+    "excludePrivate": true,
+    "githubPages": false,
+    "logLevel": "Verbose",
+    "name": "📦 postman-to-markdown",
+    "out": "docs",
+    "plugin": [
+        "typedoc-plugin-missing-exports",
+    ],
+    "readme": "CONTRIBUTING.md",
+    "sort": [
+        "source-order"
+    ]
+}

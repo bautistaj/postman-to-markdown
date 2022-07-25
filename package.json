@@ -1,33 +1,114 @@
 {
-  "name": "postman-to-markdown",
-  "version": "1.0.6",
-  "description": "Generate documentation in markdown from postman documentation.",
-  "main": "./src/index.js",
-  "scripts": {
-    "test": "node ./src/test.js ./example/kmk-blog.postman_collection.json"
-  },
-  "keywords": [
-    "postman",
-    "markdown",
-    "documentation",
-    "nodejs"
-  ],
-  "author": "Jose Luis Campos Bautista <bautistaj20@outlook.com>",
-  "license": "MIT",
-  "bin": {
-    "postman-to-markdown": "./bin/global.js"
-  },
-  "preferGlobal": true,
-  "dependencies": {
-    "chalk": "^4.1.0",
-    "minimist": "^1.2.5"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bautistaj/postman-to-markdown.git"
-  },
-  "bugs": {
-    "url": "https://github.com/bautistaj/postman-to-markdown/issues"
-  },
-  "homepage": "https://github.com/bautistaj/postman-to-markdown#readme"
+    "author": "Jose Luis Campos Bautista <bautistaj20@outlook.com>",
+    "autoupdate": {
+        "fileMap": [
+            {
+                "basePath": "dist",
+                "files": [
+                    "**/*"
+                ]
+            }
+        ],
+        "source": "git",
+        "target": "git://github.com/sebastienrousseau/crypto-service.git"
+    },
+    "bin": {
+        "postman-to-markdown": "./dist/bin/global.js"
+    },
+    "bugs": {
+        "url": "https://github.com/bautistaj/postman-to-markdown/issues"
+    },
+    "description": "Generate documentation in markdown from postman documentation.",
+    "devDependencies": {
+        "@commitlint/cli": "^17.0.3",
+        "@commitlint/config-conventional": "^17.0.3",
+        "@sebastienrousseau/c8-config": "^0.0.3",
+        "@sebastienrousseau/eslint-config": "^0.0.2",
+        "@sebastienrousseau/jsdoc-config": "^0.0.5",
+        "@sebastienrousseau/markdownlint-config": "^0.0.1",
+        "@sebastienrousseau/mocha-config": "^0.0.5",
+        "@sebastienrousseau/prettier-config": "^0.0.4",
+        "@sebastienrousseau/remark-config": "^0.0.3",
+        "@types/chai": "^4.3.1",
+        "@types/chai-as-promised": "^7.1.5",
+        "@types/jest": "^28.1.6",
+        "@types/minimist": "^1.2.2",
+        "@types/mocha": "^9.1.1",
+        "@types/node": "^18.6.1",
+        "@typescript-eslint/eslint-plugin": "^5.30.7",
+        "@typescript-eslint/parser": "^5.30.7",
+        "c8": "^7.12.0",
+        "chai": "^4.3.6",
+        "chai-as-promised": "^7.1.1",
+        "chalk": "^4.1.2",
+        "coveralls": "^3.1.1",
+        "eslint": "^8.20.0",
+        "eslint-import-resolver-typescript": "^3.3.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "filesizes": "^0.1.2",
+        "husky": "^8.0.1",
+        "jest": "^28.1.3",
+        "minimist": "^1.2.6",
+        "mocha": "^10.0.0",
+        "nodemon": "^2.0.19",
+        "prettier": "^2.7.1",
+        "remark-cli": "^11.0.0",
+        "remark-footnotes": "^4.0.1",
+        "remark-preset-lint-consistent": "^5.1.1",
+        "remark-preset-lint-markdown-style-guide": "^5.1.2",
+        "remark-preset-lint-recommended": "^6.1.2",
+        "rimraf": "^3.0.2",
+        "ts-jest": "^28.0.7",
+        "ts-node": "^10.9.1",
+        "typedoc": "^0.23.9",
+        "typedoc-plugin-missing-exports": "^0.23.0",
+        "typescript": "^4.7.4"
+    },
+    "directories": {
+        "src": "src",
+        "test": "__tests__"
+    },
+    "engines": {
+        "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+    },
+    "homepage": "https://github.com/bautistaj/postman-to-markdown#readme",
+    "keywords": [
+        "documentation",
+        "markdown",
+        "nodejs",
+        "postman"
+    ],
+    "license": "MIT",
+    "license_URI": "http://www.opensource.org/licenses/mit-license.php",
+    "main": "./dist/index.js",
+    "name": "postman-to-markdown",
+    "preferGlobal": true,
+    "publishConfig": {
+        "access": "public",
+        "registry": "https://npm.pkg.github.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bautistaj/postman-to-markdown.git"
+    },
+    "scripts": {
+        "compile": "npx rimraf ./dist  && npx tsc --build tsconfig.json",
+        "docs": "typedoc --options typedoc.json",
+        "filesize:distribution": "npx filesizes dist/ > dist/report.txt",
+        "format": "prettier --write src/**/*.ts",
+        "lint": "npx eslint src/**/*.ts",
+        "lint:fix": "eslint --cache --fix src/**/*.ts",
+        "markdown": "npx remark ./*.md packages/**/*.md --rc-path ./.remarkrc --quiet",
+        "postinstall": "husky install",
+        "prepack": "npx exec build",
+        "release": "npx exec release:prepare && yarn release:publish",
+        "release:prepare": "npx exec pack",
+        "release:publish": "npx exec publish --access public --ignore-scripts --@OWNER:registry='https://registry.npmjs.org' && npm publish",
+        "start": "node ./dist/src/bin/global.js",
+        "test": "npx jest --coverage --config jest.config.ts",
+        "watch": "npx jest --watch --config jest.config.ts"
+    },
+    "typings": "dist/index.d.ts",
+    "version": "1.0.7"
 }

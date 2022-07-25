@@ -1,0 +1,101 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>📦 postman-to-markdown</title><meta name="description" content="Documentation for 📦 postman-to-markdown"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base=".">
+<div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">📦 postman-to-markdown</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-8 col-content">
+<div class="tsd-page-title">
+<h2>📦 postman-to-markdown</h2></div>
+<div class="tsd-panel tsd-typography"><p><a href="https://www.npmjs.com/postman-to-markdown"><img src="https://img.shields.io/npm/v/postman-to-markdown.svg?style=for-the-badge&color=f14041" alt="npm"></a>
+<a href="https://github.com/bautistaj/postman-to-markdown/graphs/contributors"><img src="https://img.shields.io/github/contributors/bautistaj/postman-to-markdown.svg?style=for-the-badge" alt="Contributors"></a>
+<a href="https://github.com/bautistaj/postman-to-markdown/network/members"><img src="https://img.shields.io/github/forks/bautistaj/postman-to-markdown.svg?style=for-the-badge" alt="Forks"></a>
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge&color=ff69b4" alt="License"></a></p>
+
+<a href="#📦-postman-to-markdown" id="📦-postman-to-markdown" style="color: inherit; text-decoration: none;">
+  <h1>📦 postman-to-markdown</h1>
+</a>
+<p>This package generates a Markdown document from a Postman collection. Postman is
+an API development environment that makes sending API requests very easy.</p>
+<p><strong><a href="https://crypto-service.co">Website</a> • <a href="https://crypto-service/docs/">Documentation</a> 
+• <a href="https://github.com/sebastienrousseau/crypto-service/issues">Report Bug</a> 
+• <a href="https://github.com/sebastienrousseau/crypto-service/issues">Request Feature</a> 
+• <a href="https://github.com/sebastienrousseau/crypto-service/blob/master/.github/CONTRIBUTING.md">Contributing Guidelines</a></strong></p>
+<hr>
+
+<a href="#getting-started" id="getting-started" style="color: inherit; text-decoration: none;">
+  <h2>Getting Started</h2>
+</a>
+<p>👉 Before you begin: » Make sure you have downloaded <a href="https://www.postman.com/downloads/">Postman</a> and installed
+it on your computer. Alternatively, you can sign up to use the <a href="https://www.postman.com/">web version</a>
+of Postman.</p>
+<ul>
+<li>First export the collection from Postman.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/bautistaj/postman-to-markdown/master/resources/export_collection.png" alt="Drag Racing"></p>
+<ul>
+<li>Save the collection file.</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/bautistaj/postman-to-markdown/master/resources/export.png" alt="Drag Racing"></p>
+
+<a href="#install" id="install" style="color: inherit; text-decoration: none;">
+  <h2>Install</h2>
+</a>
+<pre><code class="language-npm">npm install -g postman-to-markdown
+</code></pre>
+
+<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+  <h2>Usage</h2>
+</a>
+<p>Execute postman-to-markdown specifying the collection file.</p>
+<pre><code class="language-bash"><span class="hl-0">postman-to-markdown postman_collection.json </span>
+</code></pre>
+<pre><code class="language-bash"><span class="hl-0">Reading file examples/postman_collection.json</span><br/><span class="hl-0">Generating markdown file ...</span><br/><span class="hl-0">Documentation was created correctly examples/postman_collection.md</span><br/>
+</code></pre>
+<p>The package will create an .md file.</p>
+<p>Example of file generated
+<a href="examples/postman_collection.md">postman_collection.md</a></p>
+
+<a href="#contributing" id="contributing" style="color: inherit; text-decoration: none;">
+  <h2>Contributing</h2>
+</a>
+<p>If someone wants to add or improve something, I invite you to collaborate
+directly in this repository: 
+<a href="https://github.com/bautistaj/postman-to-markdown.git">postman-to-markdown</a></p>
+
+<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+  <h2>License</h2>
+</a>
+<p>postman-to-markdown is released under the
+<a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+</div></div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<nav class="tsd-navigation primary">
+<details class="tsd-index-accordion" open><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li class="current selected"><a href="modules.html">📦 postman-<wbr/>to-<wbr/>markdown</a>
+<ul>
+<li class="tsd-kind-module"><a href="modules/_types_types.html">@types/types</a></li>
+<li class="tsd-kind-module"><a href="modules/bin_global.html">bin/global</a></li>
+<li class="tsd-kind-module"><a href="modules/index.html">index</a></li>
+<li class="tsd-kind-module"><a href="modules/util.html">util</a></li>
+<li class="tsd-kind-module"><a href="modules/util_write.html">util/write</a></li></ul></li></ul></div></details></nav></div></div>
+<div class="container tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div><script src="assets/main.js"></script></body></html>

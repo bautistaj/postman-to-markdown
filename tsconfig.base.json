@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+        "allowJs": true, /* Allow javascript files to be compiled. */
+        "allowSyntheticDefaultImports": true, /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
+        "alwaysStrict": true, /* Parse in strict mode and emit "use strict" for each source file. */
+        "baseUrl": ".", /* Base directory to resolve non-absolute module names. */
+        "composite": true, /* Enable project compilation */
+        "checkJs": true, /* Check javascript files for errors. */
+        "declaration": true, /* Generates corresponding '.d.ts' file. */
+        "declarationMap": true, /* Generates a sourcemap for each corresponding '.d.ts' file. */
+        "emitDecoratorMetadata": true, /* Enables experimental support for emitting type metadata for decorators. */
+        "esModuleInterop": true, /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
+        "exactOptionalPropertyTypes": true, /* Enables strict checking of property types in class constructors. */
+        "experimentalDecorators": true, /* Enables experimental support for ES7 decorators. */
+        "forceConsistentCasingInFileNames": true, /* Disallow inconsistently-cased references to the same file. */
+        "incremental": true, /* Enable incremental compilation. */
+        "lib": ["es2021"], /* Specify library files to be included in the compilation. */
+        "module": "commonjs", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */
+        "moduleResolution": "node", /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */
+        "newLine": "lf", /* Specifies the end of line sequence to be used when emitting files: 'crlf' (Windows) or 'lf' (Unix). */
+        "noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
+        "noImplicitAny": false, /* Report error when not all code paths in function return a value. */
+        "noImplicitOverride": true, /* Report error when a class member overrides an inherited member and the two inherited members have a different type. */
+        "noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
+        "noUnusedLocals": true, /* Report errors on unused locals. */
+        "noUnusedParameters": true, /* Report errors on unused parameters. */
+        "outDir": "./dist", /* Redirect output structure to the directory. */
+        "preserveConstEnums": true, /* Do not convert constant enum declarations to enums with string valued members. */
+        "pretty": true, /* Enable verbose and human readable output. */
+        "removeComments": true, /* Do not emit comments to output. */
+        "resolveJsonModule": true, /* Do not emit comments to output. */
+        "rootDir": "./src", /* Specify the root directory of input files. */
+        "skipLibCheck": true, /* Skip type checking of declaration files. */
+        "sourceMap": true, /* Generates corresponding '.map' file. */
+        "strict": true, /* Enable all strict type-checking options. */
+        "strictBindCallApply": true, /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
+        "strictFunctionTypes": true, /* Enable strict checking of function types. */
+        "strictNullChecks": true, /* Enable strict null checks. */
+        "strictPropertyInitialization": true, /* Enable strict property initialization in classes. */
+        "target": "ES2020", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', 'ES2018', 'ES2019', 'ES2020', or 'ESNEXT'. */
+        "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo" /* Specify file to store incremental compilation information. */
+    }
+}
