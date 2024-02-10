@@ -126,12 +126,13 @@ function readFormDataBody(body) {
 function readResponse(responses) {
   let markdown = "";
   if (responses?.length) {
-    const response = responses[0];
-    markdown += `### Response: ${response.code}\n`;
-    markdown += `\`\`\`json\n`;
-    markdown += `${response.body}\n`;
-    markdown += `\`\`\`\n`;
-    markdown += `\n`;
+    responses.forEach(response => {
+          markdown += `### Response: ${response.code}\n`;
+          markdown += `\`\`\`json\n`;
+          markdown += `${response.body}\n`;
+          markdown += `\`\`\`\n`;
+          markdown += `\n`;
+    });
   }
   return markdown;
 }
