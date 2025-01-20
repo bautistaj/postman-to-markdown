@@ -8,8 +8,6 @@ const chalk = require(`chalk`);
  */
 function createStructureOfMarkdown(docJson) {
   let markdown = "";
-  console.log('json: ', docJson);
-  console.log('json: ', docJson.info);
   markdown += `# Project: ${docJson?.info?.name}\n`;
   markdown +=
     docJson.info.description !== undefined
@@ -200,11 +198,13 @@ function readItems(items, folderDeep = 1) {
  * Create file
  * @param {string} content
  */
-function writeFile(content, fileName) {
-  fs.writeFile(`${fileName}.md`, content, function (err) {
+function writeFile(content, fileName, path) {
+  const pathFile = path === undefined ? `${fileName}.md` : `${path}/${fileName}.md`;
+  
+  fs.writeFile(pathFile, content, function (err) {
     if (err) throw err;
     console.log(
-      chalk.green(`Documentation was created correctly ${fileName}.md`)
+      chalk.green(`Documentation was created correctly ${pathFile}`)
     );
   });
 }

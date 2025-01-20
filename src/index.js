@@ -22,7 +22,7 @@ function init() {
       markdown += '_________________________________________________\n'
       markdown += 'Powered By: [postman-to-markdown](https://github.com/bautistaj/postman-to-markdown/)\n'
       const fileName = path[0].split('.')
-      writeFile(markdown, fileName[0])
+      writeFile(markdown, fileName[0], path[1])
       
     } else {
       console.log(chalk.red(`Path is not valid or the file not exist.`));  
