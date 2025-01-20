@@ -8,8 +8,9 @@ const chalk = require(`chalk`);
  */
 function createStructureOfMarkdown(docJson) {
   let markdown = "";
-
-  markdown += `# Project: ${docJson.info.name}\n`;
+  console.log('json: ', docJson);
+  console.log('json: ', docJson.info);
+  markdown += `# Project: ${docJson?.info?.name}\n`;
   markdown +=
     docJson.info.description !== undefined
       ? `${docJson.info.description || ""}\n`
@@ -31,9 +32,13 @@ function readAuthorization(auth) {
     markdown += `|Param|value|Type|\n`;
     markdown += `|---|---|---|\n`;
     if (auth.bearer) {
-      auth.bearer.map((auth) => {
-        markdown += `|${auth.key}|${auth.value}|${auth.type}|\n`;
-      });
+      if(auth.bearer.token) {
+        markdown += `|token|${auth.bearer.token}|\n`;
+      } else {
+        auth.bearer.map((auth) => {
+          markdown += `|${auth.key}|${auth.value}|${auth.type}|\n`;
+        });
+      }
     }
     markdown += `\n`;
     markdown += `\n`;
