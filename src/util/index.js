@@ -177,6 +177,7 @@ function readItems(items, folderDeep = 1) {
   items.forEach((item) => {
     if (item.item instanceof Array) {
       markdown += `${"#".repeat(folderDeep)} 📁 Collection: ${item.name} \n`;
+      markdown += `${item.description} \n`;
       markdown += `\n`;
 
       item.item.forEach((item) => {
