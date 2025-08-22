@@ -131,9 +131,12 @@ function readResponse(responses) {
   if (responses?.length) {
     responses.forEach(response => {
           markdown += `### Response: ${response.code}\n`;
+          markdown += `<details open style="width: fit-content; max-height: 600px; overflow: auto">\n`;
+          markdown += `<summary>Response example:</summary>\n\n`;
           markdown += `\`\`\`json\n`;
           markdown += `${response.body}\n`;
           markdown += `\`\`\`\n`;
+          markdown += `</details>\n`;
           markdown += `\n`;
     });
   }
